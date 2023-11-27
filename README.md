@@ -1,4 +1,5 @@
 # 30-day-vanilla-JS-challenge
+Remove the rust
 
 # Day 1: Hello World
 Create an HTML file with a "Hello, World!" message. Use JavaScript to display an alert with a greeting when the page loads.

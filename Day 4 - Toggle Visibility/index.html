@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Day 4: Toggle Visibility</title>
+</head>
+<body>
+    <div class="flex items-center justify-center flex-col m-10">
+        <div id="hide" class="border-solid border-2 border-black p-10 mb-10">
+            
+        </div>
+        
+        <div>
+            <button id="btn" onclick="toggleVis()" class="border-solid border-2 border-black p-10 hover:bg-sky-200">NOW YOU SEE ME!</button>
+        </div>
+
+    </div>
+
+    <script>
+        const e = document.querySelector("#hide");
+        const btn = document.querySelector("#btn");
+        e.style.visibility = 'visible'
+        const toggleVis = () => {
+            if(e.style.visibility === 'visible'){
+                e.style.visibility = 'hidden';
+                btn.innerHTML = "NOW YOU DONT :)";
+            }else{
+                e.style.visibility = 'visible';
+                btn.innerHTML = "NOW YOU SEE ME!";
+            }
+            // e.style.visibility === 'visible' ? e.style.visibility = 'hidden' : e.style.visibility = 'visible';
+            
+        }
+    </script>
+</body>
+</html>

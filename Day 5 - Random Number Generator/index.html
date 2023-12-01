@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Day 5: Random Number Generator</title>
+</head>
+<body>
+    <div class="flex items-center justify-center flex-col m-10">
+        <div>
+            <input type="text" id="count"  readonly class="border-solid border-2 border-black w-xl p-3"><br><br>
+        </div>
+        
+        <div>
+            <button onclick="generateRandNum()" class="border-solid border-2 border-black p-2">Generate Random Number</button>
+
+        </div>
+
+    </div>
+
+    <script>
+        const c = document.querySelector('#count')
+        const generateRandNum = () => {
+            c.value = Math.floor(Math.random() * 100);
+        }
+    </script>
+</body>
+</html>

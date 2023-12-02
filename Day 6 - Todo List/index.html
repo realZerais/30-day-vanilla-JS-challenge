@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Day 6: Todo List</title>
+</head>
+<body>
+    <div class="flex items-center justify-center flex-col m-10">
+        <div class="todoContainer">
+            
+    
+            <input type="text" id="todo" class="border-solid border-2 border-black w-xl p-3"><br><br>
+
+        </div>
+        
+        <div>
+            <button onclick="addItem()" class="border-solid border-2 border-black p-2 mt-2 ">ADD</button>
+        </div>
+
+    </div>
+
+    <script>
+
+
+        const todoContainer = document.querySelector(".todoContainer");
+        const todo = document.querySelector("#todo");
+
+        const addItem = () =>{
+            var newItem = document.createElement("div");
+            newItem.id = "newDiv";
+            newItem.style.marginTop = "2rem";
+            newItem.style.marginButtom = "2rem";
+            newItem.style.width = "210px";
+            newItem.style.height = "50px";
+            newItem.style.border = "solid";
+            newItem.innerHTML = todo.value;
+            newItem.innerHTML += "<br>click to remove";
+            newItem.onclick = function() { this.remove(); };
+            todoContainer.appendChild(newItem);
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Day 7: Image Slider</title>
+</head>
+<body>
+    <div  class="flex items-center justify-center flex-col m-10">
+        <div> 
+            <img src="images/img1.jpg" alt="" id="images" >
+        </div>
+        <div>
+            
+            <button onclick="nextImage()" class="border-solid border-2 border-black p-2 mt-2 mb-2 ">Next Image</button>
+
+            <button onclick="prevImage()" class="border-solid border-2 border-black p-2 mt-2 mb-2 ">Prev Image</button>
+    
+        </div>
+       
+    
+    </div>
+    
+    <style>
+        img{
+            height: 80vh;
+        }
+    </style>
+    <script>
+        
+
+        const images = document.querySelector("#images");
+        let imgCount = 1;
+        const nextImage = () =>{ 
+            imgCount++;
+            imgCount > 7 ? imgCount = 1: imgCount = imgCount;
+            images.src = `images/img${imgCount}.jpg`;
+            console.log(imgCount);
+        }
+
+        const prevImage = () =>{ 
+            imgCount--;
+            imgCount <= 0 ? imgCount = 7: imgCount = imgCount;
+            console.log(imgCount);
+            images.src = `images/img${imgCount}.jpg`;
+            
+        }
+     
+    </script>
+</body>
+</html>

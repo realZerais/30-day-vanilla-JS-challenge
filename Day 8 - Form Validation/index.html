@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Day 8: Form Validation</title>
+</head>
+<body>
+    
+    <div  class="flex items-center justify-center flex-col m-10">
+   
+        <form class="flex items-center justify-center flex-col m-10"  name="myForm" action="http://localhost:3000/" onsubmit="return validateForm()" method="get">
+            <div >
+                Name: <input type="text" name="name" class="border-solid border-2 border-black p-2 mt-2 mb-2 ">
+                Age: <input type="number" name="age" class="border-solid border-2 border-black p-2 mt-2 mb-2 ">
+                Sex: <input type="radio" name="gender" value="male"> Male <input type="radio" name="gender" value="female"> Female
+                     
+            </div>
+
+            <div>
+                <input type="submit" value="Submit" class="border-solid border-2 border-black w-xl p-2">
+            </div>
+            
+        </form>
+    </div>
+
+    <script>
+        const validateForm = () => {
+            let name = document.forms["myForm"]["name"].value;
+            let age = document.forms["myForm"]["age"].value;
+            let sex = document.forms["myForm"]["gender"].value;
+
+            if (name == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            if (age == "") {
+                alert("Age must be filled out");
+                return false;
+            }
+            if (sex == "") {
+                alert("Sex must be filled out");
+                return false;
+            }
+            // age == "" ? alert("Age must be filled out")  :  false;
+            
+        }
+    </script>
+</body>
+</html>

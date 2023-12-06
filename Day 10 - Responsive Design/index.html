@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Day 10: Responsive Design</title>
+</head>
+<body>
+
+    <div class=" main-content flex items-center justify-center flex-col ">
+        <div class="bg-blue-400 h-20 w-screen flex items-center justify-center">
+            NAVBAR
+        </div>
+        <div class="rFlex flex items-center justify-center flex-row m-10 text-center gap-5">
+            <div class="boxes  bg-blue-100">box</div>
+            <div class="boxes  bg-blue-100">box</div>
+            <div class="boxes  bg-blue-100">box</div>
+            <div class="boxes  bg-blue-100">box</div>
+            <div class="boxes  bg-blue-100">box</div>
+        </div>
+    </div>
+
+    <style>
+        .boxes{
+            height: 40vh;
+            width: 20vh;
+        }
+       
+        @media only screen and (max-width: 768px){
+            .rFlex{
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <script>
+        var mql = window.matchMedia("screen and (maxwidth: 768px)");
+
+        const rFlex = document.querySelector(".rFlex");
+
+
+        mql.addListener(function(e){
+            if(e.matches){
+                console.log('enter mobile');
+            }
+            else{
+                console.log('leave mobile');
+            }
+        });
+
+    </script>
+    
+</body>
+</html>

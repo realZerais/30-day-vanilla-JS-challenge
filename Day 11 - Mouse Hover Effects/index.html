@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Day 11: Mouse Hover Effects</title>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="boxes"></div>
+    
+    </div>
+
+    <style>
+        .main-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            margin: 2rem;
+            gap: 2rem;
+        }
+        .boxes{
+            width: 10%;
+            height: 30vh;
+            background-color: skyblue;
+        }
+    </style>
+
+    <script>
+        const boxes = document.querySelector(".boxes");
+
+        boxes.addEventListener("mouseover", (e) => {
+            boxes.style.backgroundColor = "blue";   
+            console.log("asds");
+        } )
+
+        boxes.addEventListener("mouseleave", (e) => {
+            boxes.style.backgroundColor = "skyBlue";   
+            console.log("asds");
+        })
+
+        
+
+        
+
+    </script>
+    
+</body>
+</html>

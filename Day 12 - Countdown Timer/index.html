@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Day 12: Countdown Timer</title>
+</head>
+<body>
+    <div  class="flex items-center justify-center flex-col m-10">
+        <strong id="timer" class="text-xl">
+
+        </strong>
+
+        <strong></strong>
+
+        <button onclick="startTimer()" class="border-solid border-2 border-black w-xl p-2 mt-10"> Start Timer</button>
+    </div>
+
+    <script>
+        const timer = document.querySelector("#timer");
+        timer.innerHTML = `00 : 00 : 00`;
+        
+
+        const formatTime = (ms) =>{
+            // Convert milliseconds to hours, minutes, and seconds
+            var hours = Math.floor(ms / (1000 * 60 * 60));
+            var minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((ms % (1000 * 60)) / 1000);
+
+            // Add leading zeros if needed
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            return hours + ":" + minutes + ":" + seconds;
+        }
+
+        const startTimer = () => {
+            let h = 0;
+            let m = 0;
+            let s = 10;
+            let totalTime = h * 60 * 60 * 1000 + m * 60 * 1000 + s * 1000;
+
+            
+            
+           
+
+            let timerInterval = setInterval(() => {
+                totalTime -= 1000;
+                timer.innerHTML = formatTime(totalTime);
+
+                setTimeout(function () {
+                    // This function will be called when the timer reaches 0
+                    clearInterval(timerInterval);
+                    timer.nextElementSibling.innerHTML = "TIME'S UP!"
+                }, totalTime);
+            },1000);
+        }
+
+
+    </script>
+</body>
+</html>

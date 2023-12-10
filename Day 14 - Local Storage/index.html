@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 14: Local Storage</title>
+</head>
+<body>
+    <button onclick="clearAllData()">Clear All Data</button>
+    <h1>Counter: <span id="counter">0</span></h1>
+    <button onclick="incrementCounter()">Increment Counter</button>
+    <button onclick="resetCounter()">Reset Counter</button>
+
+    <br><br><br>
+   
+    <input type="text" id="name">
+    <button onclick="addName()">Add Name</button> 
+
+    <div id="nameContainer">
+
+    </div>
+<script>
+    // The localStorage object allows you to save key/value pairs in the browser.
+    // Save Data to Local Storage
+    // localStorage.setItem(key, value);
+    // Read Data from Local Storage
+    // localStorage.getItem(key);
+    // Remove Data from Local Storage
+    // localStorage.removeItem(key);
+    // Remove All (Clear Local Storage)
+    // localStorage.clear();
+
+    
+    const counter = document.getElementById('counter');
+    const nameContainer = document.getElementById('nameContainer');
+    const name = document.getElementById('name');
+    
+    const incrementCounter = () => {
+
+      let counterValue = localStorage.getItem('counter') || 0;
+      counterValue++;
+      counter.innerText = counterValue;
+
+      // Store the updated counter value in localStorage
+      localStorage.setItem('counter', counterValue);
+    }
+    const resetCounter = () =>{
+        localStorage.removeItem('counter')
+        counter.innerText = 0;
+    }
+    // On page load, retrieve the counter value from localStorage and update the display
+    document.addEventListener('DOMContentLoaded', function() {
+      let counterValue = localStorage.getItem('counter') || 0;
+      document.getElementById('counter').innerText = counterValue;
+    });
+
+
+    const addName = () =>{
+        let newName = document.createElement("h1");
+        newName.innerHTML = name.value;
+        localStorage.setItem(`${name.value}`, `${name.value}`)
+        nameContainer.appendChild(newName);
+    }
+
+    const clearAllData = () => {
+        localStorage.clear();
+        nameContainer.innerHTML = "";
+        counter.innerText = 0;
+    }
+</script>
+    
+</body>
+</html>

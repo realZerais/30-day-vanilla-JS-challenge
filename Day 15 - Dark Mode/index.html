@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15: Dark Mode</title>
+</head>
+<body>
+    <button onclick="toggleMode()">Toggle Mode</button>
+</body>
+
+<script>
+    const body = document.querySelector("body");
+    const toggleButton = document.querySelector("button");
+
+    let darkMode = false;
+    const toggleMode = () =>{
+        darkMode = !darkMode;
+        darkMode === true ? body.style.background = "black"  :  body.style.background = "white";
+        
+    }
+
+</script>
+</html>

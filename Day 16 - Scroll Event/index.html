@@ -6,7 +6,8 @@
     <title>Day 16: Scroll Event</title>
 </head>
 <body>
-    <div class="para" style="height: 100px;">
+ 
+    <div class="para" style="height: 100px; margin-top: 50vh;">
         
     </div>
     
@@ -19,7 +20,10 @@
     
     addEventListener("scroll", (event) => {
         document.querySelector(".para").style.backgroundColor = "blue";
+        console.log(event.type);
+        console.log(event.target);
     });
-
+    //The purpose of including it in the function signature is to allow you to access information from the event object if needed
+    //event.type (which is the type of the event, in this case, "scroll") and event.target (which is the element that triggered the event) properties from the event object. This demonstrates how you can use the event parameter to gather more information about the event if needed.
 </script>
 </html>

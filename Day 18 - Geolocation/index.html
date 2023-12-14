@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation API Example</title>
+</head>
+<body>
+    <h1>Current Location</h1>
+    <p id="location">Click the button to get your current location.</p>
+
+    <script>
+        function showPosition(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            const locationElement = document.getElementById('location');
+            locationElement.innerHTML = `Your current location is: ${latitude}, ${longitude}`;
+        }
+
+        function showError(error) {
+            const locationElement = document.getElementById('location');
+
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    locationElement.innerHTML = "User denied the request for Geolocation.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    locationElement.innerHTML = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    locationElement.innerHTML = "The request to get user location timed out.";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    locationElement.innerHTML = "An unknown error occurred.";
+                    break;
+            }
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                const locationElement = document.getElementById('location');
+                locationElement.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+    </script>
+
+    <button onclick="getLocation()">Get Location</button>
+</body>
+</html>

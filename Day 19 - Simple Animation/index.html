@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 19: Simple Animation</title>
+</head>
+<body>
+    <p>
+        <button onclick="move()">Click Me</button> 
+    </p>
+        
+    <div id ="myContainer">
+        <div id ="myAnimation"></div>
+    </div>
+        
+
+    <style>
+        #myContainer {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background: yellow;
+        }
+        #myAnimation {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: red;
+        }
+    </style>
+
+    <script>
+        // var id = null;
+        // function myMove() {
+        //     var elem = document.getElementById("myAnimation");   
+        //     var pos = 0;
+
+        //     clearInterval(id);
+        //     id = setInterval(frame, 10);
+
+        //     function frame() {
+        //         if (pos == 350) {
+        //             clearInterval(id);
+        //         } else {
+        //             pos++; 
+        //             elem.style.top = pos + 'px'; 
+        //             elem.style.left = pos + 'px'; 
+        //         }
+        //     }
+        // }
+
+        const elem = document.getElementById("myAnimation"); 
+        let pos = 0;
+
+        const move = () =>{
+         
+            let anim = setInterval( ()=> {
+                if (pos == 350) {
+                clearInterval(anim);
+                } else {
+                    pos++; 
+                    elem.style.top = pos + 'px'; 
+                    elem.style.left = pos + 'px'; 
+            }}, 
+            300);
+
+        }
+
+       
+
+        
+    </script>
+    
+</body>
+</html>

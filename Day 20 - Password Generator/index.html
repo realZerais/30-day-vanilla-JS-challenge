@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Day 20: Password Generator</title>
+</head>
+<body>
+    <div id="parentEl" class="flex flex-col w-[100%] p-4 gap-6 items-center justify-center ">
+        <h1>ENTER PASSWORD LENGTH</h1>
+        <input type="number" name="passLength" value="5" id="passEl" class="border-solid border-2 border-black" style="height: 2rem; width: 50%;">
+        <div class="flex flex-row items-center justify-center  " style="height: 10vh; width: 50%;">
+            <button onclick="generatePassword(passEl.value)" class="border-solid border-2 border-black" style="height: 5rem; width: 50%;">Generate Password</button>
+        </div>
+    </div>
+    
+    <script>
+        const passEl = document.querySelector("#passEl");
+        const parentEl = document.querySelector("#parentEl");
+
+
+       const generatePassword = (passLength) =>{
+            parentEl.removeChild(parentEl.lastChild);
+            // console.log(passLength);
+            const randomize = () =>{
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let pass = [];
+                for(i=0; i < passLength; i++){
+                    pass.push(characters[Math.floor(Math.random() * characters.length)])
+                }
+                return pass.join('');
+            }
+
+            let password = document.createElement("h1");
+            password.innerHTML = randomize();
+            parentEl.appendChild(password);
+       }
+    </script>
+</body>
+</html>

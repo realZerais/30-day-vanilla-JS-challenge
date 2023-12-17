@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Day 21: Filter and Sort</title>
+</head>
+<body>
+    
+    <div class="flex items-center justify-center flex-col m-10">
+        <div class="flex flex-col">
+            <button onclick="addTodo()" class="border-solid border-2 border-black p-2 mt-2 mb-2 ">ADD</button>
+            <input type="text" id="todo" class="border-solid border-2 border-black w-xl p-3"><br><br>
+        </div>
+
+        <div class="todoContainer flex items-center justify-center flex-col m-10 text-center">
+
+        </div>
+        
+        
+
+    </div>
+
+    <style>
+        .closeBtn{
+            width: 40px;
+            height: 40px;
+            top: 20px;
+            left: 20px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1;
+            color: #888;
+        }
+
+        .todoContainer{
+            width: 70%;
+        }
+
+        .todos{
+            width: 30%;
+            margin-top: 2rem;
+        }
+
+    </style>
+
+    <script>
+
+
+        const todoContainer = document.querySelector(".todoContainer");
+
+        const todo = document.querySelector("#todo");
+
+      
+        
+
+      
+
+        const addTodo = () =>{
+            const todoDiv = document.createElement("div");
+            todoDiv.className = "todos flex flex-col border-solid border-2 border-black";
+
+            const closeBtn = document.createElement("button");
+            closeBtn.innerHTML = "&times;";
+            closeBtn.className = "closeBtn";
+
+            const todoName = document.createElement("h1");
+            todoName.innerHTML = todo.value;
+
+            todoContainer.appendChild(todoDiv);
+            todoDiv.appendChild(closeBtn);
+            
+            todoDiv.appendChild(todoName);
+
+            deleteItem(closeBtn);
+
+           
+        
+        }
+
+        const deleteItem = (e) =>{
+            e.onclick = function() { parentElement.remove()}
+        }
+        
+    </script>
+    
+</body>
+</html>

@@ -47,18 +47,16 @@
 
     <script>
 
+        const todoElements = [];
+
 
         const todoContainer = document.querySelector(".todoContainer");
-
         const todo = document.querySelector("#todo");
-
-      
-        
-
-      
 
         const addTodo = () =>{
             const todoDiv = document.createElement("div");
+            todoDiv.setAttribute("isDone", "false")
+            // console.log(todoDiv.getAttribute("isDone"));
             todoDiv.className = "todos flex flex-col border-solid border-2 border-black";
 
             const closeBtn = document.createElement("button");
@@ -68,21 +66,59 @@
             const todoName = document.createElement("h1");
             todoName.innerHTML = todo.value;
 
-            todoContainer.appendChild(todoDiv);
-            todoDiv.appendChild(closeBtn);
-            
-            todoDiv.appendChild(todoName);
+            const markBtn = document.createElement("button");
+            markBtn.innerHTML = "mark as done";
+            markBtn.onclick = markTodo(todoDiv);
 
-            deteleTodo(todoDiv, closeBtn);
+            todoContainer.appendChild(todoDiv);
+
+            
+
+            todoDiv.appendChild(closeBtn);
+            todoDiv.appendChild(todoName);
+            todoDiv.appendChild(markBtn);
 
            
-        
+
+            deleteTodo(todoDiv, closeBtn);
+
+
+           
+            
+            todoElements.push(todoDiv)
+            
+            console.log(todoElements);
         }
 
-        const deteleTodo = (parent, element) => {
+        const deleteTodo = (parent, element) => {
             element.addEventListener("click", () => {
                 parent.remove();
             });
+        }
+
+    
+        const markTodo = (element) => {
+            element.addEventListener("click", () => {
+                var todoStatus = element.getAttribute("isDone");
+                element.setAttribute("isDone", todoStatus === "true" ? "false" : "true");
+
+
+                if(element.getAttribute("isDone") === "true" ){
+                    element.style.backgroundColor = "green";
+                }else{
+                    element.style.backgroundColor = "white";
+                }
+                
+                // element.getAttribute("isDone") === "true" ? element.style.backgroundColor = "green": false;
+            });
+        }
+
+        const filterTodo = () =>{
+            
+        }
+
+        const sortTodo = () =>{
+            
         }
         
     </script>

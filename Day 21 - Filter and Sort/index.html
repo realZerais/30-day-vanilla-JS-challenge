@@ -73,14 +73,16 @@
             
             todoDiv.appendChild(todoName);
 
-            deleteItem(closeBtn);
+            deteleTodo(todoDiv, closeBtn);
 
            
         
         }
 
-        const deleteItem = (e) =>{
-            e.onclick = function() { parentElement.remove()}
+        const deteleTodo = (parent, element) => {
+            element.addEventListener("click", () => {
+                parent.remove();
+            });
         }
         
     </script>

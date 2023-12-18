@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+    <title>Day 22: Modal Popup</title>
+</head>
+<body>
+    <h1>The dialog element</h1>
+
+    <p>This is some text.</p>
+
+    <p>This is some text.</p>
+
+    <button onclick="openModal()">OPEN MODAL</button>
+
+    <dialog modal>
+        <button onclick="closeModal()" class="closeBtn">X</button>
+        <h1 style="text-align: center;">HAHAH</h1>
+    </dialog>
+
+    <p>This is some text.</p>
+
+    <p>This is some text.</p>
+
+    <style>
+         .closeBtn{
+            width: 40px;
+            height: 40px;
+            top: 20px;
+            left: 20px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1;
+            color: #888;
+        }
+
+        dialog{
+            width: 50%;
+            height: 50vh;
+        }
+    </style>
+
+    <script>
+        const modal = document.querySelector("[modal]")
+
+
+        const openModal = () =>{
+            modal.showModal();
+        }
+        const closeModal = () =>{
+            modal.close()
+        }
+    </script>
+</body>
+</html>

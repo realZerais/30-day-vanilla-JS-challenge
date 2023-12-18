@@ -85,7 +85,10 @@
 
            
             
-            todoElements.push(todoDiv)
+            todoElements.push({
+                "elements": todoDiv,
+                "done": false
+            });
             
             console.log(todoElements);
         }
@@ -111,14 +114,16 @@
                 
                 // element.getAttribute("isDone") === "true" ? element.style.backgroundColor = "green": false;
             });
+
+            
         }
 
         const filterTodo = () =>{
-            
+            //filter done 
         }
 
         const sortTodo = () =>{
-            
+            //sort 
         }
         
     </script>

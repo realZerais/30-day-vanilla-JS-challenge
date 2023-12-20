@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 24: Mouse Click Coordinates</title>
+</head>
+<body>
+    <div onclick="showCoords()" class="screen">
+        <h1 class="mouseX"></h1>
+        <h1 class="mouseY"></h1>
+    </div>
+
+    <style>
+        .screen{
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+
+
+    <script>
+       const mouseX = document.querySelector(".mouseX");
+       const mouseY = document.querySelector(".mouseY");
+
+       const showCoords = () => {
+        mouseX.innerHTML = "X:" + event.clientX;
+        mouseY.innerHTML = "Y:" + event.clientY;
+       }
+       
+  
+
+    </script>
+    
+</body>
+</html>

@@ -38,16 +38,20 @@ const displayCountry = async () =>{
         });
 
         
+        
 
-        data.forEach(e => {
+
+        // getCurrency(country);
+
+        // data.forEach(e => {
             
-            console.log(mapNestedArrayValue(data, "currencies"));
+        //     console.log(e);
             
            
             
-        });
+        // });
 
-        console.log(data)
+        // console.log(data)
         
       } catch (error) {
         // Handle errors, such as network issues or invalid JSON
@@ -57,27 +61,43 @@ const displayCountry = async () =>{
 
 displayCountry();
 
-function mapNestedArrayValue(arr, targetKey) {
-    let result;
-  
-    // Helper function to recursively traverse the array of objects
-    function traverseArray(arr) {
-      for (const item of arr) {
-        if (item && typeof item === 'object') {
-          if (item.hasOwnProperty(targetKey)) {
-            // Found the target key, store the value and break out of the loop
-            result = item[targetKey];
-            break;
-          } else {
-            // Continue recursively if the current item is an object or array
-            traverseArray(Object.values(item));
-          }
+const getCurrency = async (country) => {
+
+
+    let countryAPI = `https://restcountries.com/v3.1/name/${country}`;
+
+    try {
+        // Make a GET request to the API endpoint
+        const response = await fetch(countryAPI);
+    
+        // Check if the request was successful (status code 200-299)
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
+    
+        // Parse the JSON data from the response
+        const data = await response.json();
+    
+        // Use the data or perform other actions
+        data.forEach(e => {
+            // currencyDiv.innerHTML += e.currencies;
+            // console.log(e.currencies)
+
+            let myObject = e.currencies;
+            console.log(myObject);
+
+            for (const key in myObject) {
+                if (myObject.hasOwnProperty(key)) {
+                  const obj = myObject[key];
+                  currencyDiv.innerHTML = `${obj.name} symbol: ${obj.symbol}`
+                  console.log(obj.name +" "+obj.symbol);
+                }
+              }
+        });
+        
+      } catch (error) {
+        // Handle errors, such as network issues or invalid JSON
+        console.error('Error:', error.message);
       }
-    }
-  
-    // Start the traversal
-    traverseArray(arr);
-  
-    return result;
-  }
+}
+

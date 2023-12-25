@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Day 27: Dynamic Content</title>
+</head>
+<body>
+
+    <!-- Load additional content onto your page dynamically (e.g., when a button is clicked). -->
+
+    <div class="pokemon-container flex flex-col items-center justify-center text-white gap-6" >
+
+        
+        <h1>Pokemon Name: <input class="text-black" type="text" name="name" id="pname"></h1>
+        <h1>Pokemon Type: <input class="text-black" type="text" name="type" id="ptype"></h1>
+        <h1>Pokemon HP: <input class="text-black" type="number" name="hp" id="php"></h1>
+        <button onclick="createPokemon(pname.value, ptype.value, php.value)">Create Pokemon</button>
+                
+        <h1>ALL POKEMONS WILL BE LISTED BELOW</h1>
+
+        
+
+    </div>
+
+
+    <style>
+        body{
+            background-color: black;
+        }
+    </style>
+    <script>
+        const pokemonDiv = document.querySelector(".pokemon-container");
+        const pokemons = [];
+
+        const createPokemon = (name, type, hp) => {
+            this.name = name;
+            this.type = type;
+            this.hp = hp;
+
+            pokemons.push(this);
+
+            let pokemon = document.createElement("div");
+            pokemon.innerHTML = `<p>Pokemon Name: ${this.name} </p> <p>Type: ${this.name} </p> <p>Pokemon HP: ${this.hp} </p>`;
+            pokemonDiv.appendChild(pokemon);
+            
+            console.log(this.name + this.type + this.hp)
+
+
+        }
+
+        // createPokemon("pikachu", "kurinti", 1000)
+        // createPokemon("pikacasdashu", "kurinti", 1000)
+        // createPokemon("piasdadkachu", "kurinasdasdti", 1000)
+
+
+    </script>
+</body>
+</html>

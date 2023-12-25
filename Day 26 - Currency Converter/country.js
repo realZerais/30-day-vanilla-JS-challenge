@@ -3,7 +3,7 @@ const API = "https://restcountries.com/v3.1/all";
 const countryDiv = document.querySelector('.country');
 const currencyDiv = document.querySelector('.currency');
 const countries = document.querySelector('#countries');
-
+const convertedDiv = document.querySelector('.converted');
 
 const displayCountry = async () =>{
     try {
@@ -40,18 +40,6 @@ const displayCountry = async () =>{
         
         
 
-
-        // getCurrency(country);
-
-        // data.forEach(e => {
-            
-        //     console.log(e);
-            
-           
-            
-        // });
-
-        // console.log(data)
         
       } catch (error) {
         // Handle errors, such as network issues or invalid JSON
@@ -84,13 +72,13 @@ const getCurrency = async (country) => {
             // console.log(e.currencies)
 
             let myObject = e.currencies;
-            console.log(myObject);
+            
 
             for (const key in myObject) {
                 if (myObject.hasOwnProperty(key)) {
                   const obj = myObject[key];
                   currencyDiv.innerHTML = `${obj.name} symbol: ${obj.symbol}`
-                  console.log(obj.name +" "+obj.symbol);
+                  // console.log(obj.name +" "+obj.symbol);
                 }
               }
         });
@@ -99,5 +87,15 @@ const getCurrency = async (country) => {
         // Handle errors, such as network issues or invalid JSON
         console.error('Error:', error.message);
       }
+}
+
+let rate = 0.443625;
+
+const convertCurrency = () => {
+  let Php = inputValue.value * rate;
+
+  convertedDiv.innerHTML = "Converted Value: ₱ " + Php;
+  
+  
 }
 

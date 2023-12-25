@@ -18,12 +18,28 @@
             
             
         </div>
-        <div class="flex items-center justify-center gap-5" style="height: 80vh; width: 100%;">
+        <div class="flex items-center justify-center gap-5" style="height: 20vh; width: 100%;">
             <button onclick="getCurrency(countries.value)">Get Currency</button>
-            <div class="currency">Currencies: </div>
+            <div class="currency"></div>
+            
+        </div>
+
+        <div class="flex flex-col items-center justify-center gap-5" style="height: 20vh; width: 100%;">
+            <h1>AMOUNT: <input type="number" name="currencyVal" id="inputValue"></h1>
+            <button onclick="convertCurrency()">Convert to PHP</button>
+            <div class="converted"> </div>
             
         </div>
     </div>
+
+    <style>
+        *{
+            color: black;
+        }
+        body{
+            background-color: grey;
+        }
+    </style>
     
     <script src="country.js"></script>
 </body>
